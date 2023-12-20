@@ -84,14 +84,14 @@ public class Shopping {
                         // 总的钱数比(当前物品+他的主件)所需要的钱多
                         if (i > price[j] + price[check[j]]) {
                             int w = result[j - 1][i - price[j]] + value[j] * price[j];
-                            result[j][i] = w > result[j - 1][i] ? w : result[j - 1][i];
+                            result[j][i] = Math.max(w, result[j - 1][i]);
                         }
 
                     } else {
                         // 总钱数可以买主件
                         if (i >= price[j]) {
                             int w = result[j - 1][i - price[j]] + value[j] * price[j];
-                            result[j][i] = w > result[j - 1][i] ? w : result[j - 1][i];
+                            result[j][i] = Math.max(w, result[j - 1][i]);
                         }
                     }
 

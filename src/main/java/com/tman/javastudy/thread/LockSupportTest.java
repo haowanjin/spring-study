@@ -19,7 +19,7 @@ public class LockSupportTest {
             System.out.println("中断后还能执行吗");
         }, "A");
         t1.start();
-        Thread.sleep(5000*2);
-//        LockSupport.unpark(t1);
+        Thread.sleep(2000);
+        LockSupport.unpark(t1);
     }
 }

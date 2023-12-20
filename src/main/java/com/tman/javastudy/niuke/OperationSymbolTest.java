@@ -1,9 +1,6 @@
-package com.tman.javastudy.mysql;
+package com.tman.javastudy.niuke;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-
-public class MysqlConnTest {
+public class OperationSymbolTest {
     public static void main(String[] args) throws Exception {
         System.out.println(parseInput(("add 3 2")));
     }
@@ -33,7 +30,7 @@ public class MysqlConnTest {
                 }
                 return res+"";
             }
-            String remain = input.substring(l, input.length());
+            String remain = input.substring(l);
             r = remain.indexOf(")");
             String s1 = input.substring(l + 1, r);
             String[] re = s1.split("\\s");
@@ -55,7 +52,7 @@ public class MysqlConnTest {
             }
             mid = res + "";
             String be = input.substring(0, l);
-            String af = input.substring(r + 1, input.length());
+            String af = input.substring(r + 1);
             end = be+mid+af;
             return parseInput(end);
         } catch (NumberFormatException e) {
