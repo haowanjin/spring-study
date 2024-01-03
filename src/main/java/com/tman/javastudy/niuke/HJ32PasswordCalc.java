@@ -9,7 +9,7 @@ import java.util.Scanner;
  *
  * </p>
  */
-public class PasswordCalc {
+public class HJ32PasswordCalc {
     public static void main(String[] args) {
         calcPwd();
     }
@@ -19,7 +19,10 @@ public class PasswordCalc {
         // 注意 hasNext 和 hasNextLine 的区别
         while (in.hasNextLine()) { // 注意 while 处理多个 case
             String str = in.nextLine();
-            doCalc(str);
+            String[] arr =  str.split(" ");
+
+            System.out.println(arr[arr.length-1].length());
+//            doCalc(str);
         }
     }
 

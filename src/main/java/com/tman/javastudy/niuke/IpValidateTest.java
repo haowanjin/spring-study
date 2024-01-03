@@ -113,11 +113,11 @@ public class IpValidateTest {
     }
 
     public static String toBinary(String num) {
-        String numBinary = Integer.toBinaryString(Integer.parseInt(num));
+        StringBuilder numBinary = new StringBuilder(Integer.toBinaryString(Integer.parseInt(num)));
         while (numBinary.length() < 8) {
-            numBinary = "0" + numBinary;
+            numBinary.insert(0, "0");
         }
-        return numBinary;
+        return numBinary.toString();
     }
     private static boolean ipIsInvalid(String ip) {
         /**
