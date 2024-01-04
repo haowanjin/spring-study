@@ -29,7 +29,7 @@ public class IPCheckTest {
                 errNum++;
                 continue;
             }
-            if (ipIsInvaild(strArr[0])) {
+            if (ipIsInvalid(strArr[0])) {
                 errIp.add(strArr[0]);
                 errNum++;
                 continue;
@@ -64,26 +64,26 @@ public class IPCheckTest {
         }
         String maskBinary = toBinary(maskArr[0]) + toBinary(maskArr[1]) + toBinary(
                 maskArr[2]) + toBinary(maskArr[3]);
-        if (!maskBinary.matches("[1]{1,}[0]{1,}")) {
+        if (!maskBinary.matches("1+0+")) {
             return true;
         }
         return false;
     }
 
     public static String toBinary(String num) {
-        String numBinary = Integer.toBinaryString(Integer.valueOf(num));
+        String numBinary = Integer.toBinaryString(Integer.parseInt(num));
         while (numBinary.length() < 8) {
             numBinary = "0" + numBinary;
         }
         return numBinary;
     }
 
-    public static boolean ipIsInvaild(String ip) {
+    public static boolean ipIsInvalid(String ip) {
         String[] ipArr = ip.split("\\.");
         if (ipArr.length != 4) {
             return true;
         }
-        if (Integer.valueOf(ipArr[0]) > 255 || Integer.valueOf(ipArr[1]) > 255 || Integer.valueOf(ipArr[2]) > 255 || Integer.valueOf(ipArr[3]) > 255) {
+        if (Integer.parseInt(ipArr[0]) > 255 || Integer.parseInt(ipArr[1]) > 255 || Integer.parseInt(ipArr[2]) > 255 || Integer.parseInt(ipArr[3]) > 255) {
             return true;
         }
         return false;
@@ -91,6 +91,6 @@ public class IPCheckTest {
 
     public static int getIpSeg(String ip, int index) {
         String[] ipArr = ip.split("\\.");
-        return Integer.valueOf(ipArr[index]);
+        return Integer.parseInt(ipArr[index]);
     }
 }
